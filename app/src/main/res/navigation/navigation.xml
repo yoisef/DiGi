@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/main">
+
+    <fragment
+        android:id="@+id/main"
+        android:name="com.digi.movies.presentation.fragments.main.MainFragment"
+        android:label="Movies Genres"
+        tools:layout="@layout/fragment_main" >
+
+        <action
+            android:id="@+id/action_main_to_Movie_details"
+            app:destination="@id/Movie_details" />
+        <action
+            android:id="@+id/action_main_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/Movie_details"
+        android:name="com.digi.movies.presentation.fragments.movie_details.MovieDetailsFragment"
+        android:label=""
+        tools:layout="@layout/fragment_movie_details" >
+
+        <action
+            android:id="@+id/action_Movie_details_to_main"
+            app:destination="@id/main" />
+        <argument
+            android:name="movie"
+            app:argType="com.digi.movies.domain.models.Movie" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.digi.movies.presentation.fragments.SearchFragment"
+        android:label="Search" >
+        <action
+            android:id="@+id/action_searchFragment_to_Movie_details"
+            app:destination="@id/Movie_details" />
+    </fragment>
+</navigation>
